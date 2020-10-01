@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #texta{
+    width: 900px;
+    height: 175px;
+  }
+  .btn{
+    width: 450px;
+    height: 50px;
+    padding: 15px;
+    /* background-color: red; */
+    cursor: pointer;
+    border: greenyellow;
+
+  }
+  button{
+    background-color: green;
+    cursor: pointer;
+
+  }
+  .btn:hover {
+    color: #fff;
+    background-color:red;
+    }
+
+  *{
+    background-color: black;
+    color: white;
+  }
+  .spam{
+    color: red;
+    font: bold;
+  }
+  .ham{
+    font: bold;
+    color: green;
+  }
+  #footer a{
+    list-style: none;
+    text-decoration: none;
+  }
+
+  #footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    color: #fff;
+}
+.foot {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.3rem;
+    text-align: center;
+    color: #fff;
+}
+</style>
+<body>
+  <div id="head">
+    <h1 class="heading">SMS Spam Classifier
+    </h1>
+  </div>
+
+
+<center>
+<div>
+
+<form action="{{url_for('predict')}}"  method="post">
+
+  <textarea name="textarea" id="texta" cols="30" rows="10" placeholder="Enter Your Message Here"></textarea><br>
+
+  <br>
+
+  <button class="btn">Predict</button>
+
+</form>
+
+<br>
+
+
+<div class="res">
+
+  {% if result == 1 %}
+  <h1 class="spam">Spam</h1><br>
+  <h3 class="msg">Scammers send fake text messages to trick you into giving them your personal information – things like your password, account number, or Social Security number. If they get that information, they could gain access to your email, bank, or other accounts. Or they could sell your information to other scammers.
+
+     <br> The scammers use a variety of ever-changing stories to try to rope you in. They may
+    <br>
+    
+    <ul>promise free prizes, gift cards or coupons and many more things.</ul> 
+  {% elif result == 0 %}
+  <h1 class="ham"> Ham</h1>
+    <h3>Beware Of Scammers</h3>
+  {% endif %}
+
+
+</div>
+
+</div>
+
+</center>
+<br>
+
+<footer class="foot"><h3><p class='footer-description'> Made with ❤️ by Nayak Shubham.</p> </h3></footer>
+
+<div id="footer">
+  <h3><a href="https://github.com/imnayakshubham">Source Code</a></h3>
+</div>
+
+
+
+
+
+  
+</body>
+</html>
